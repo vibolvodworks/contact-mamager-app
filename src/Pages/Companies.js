@@ -1,5 +1,5 @@
 const Companies = () => {
-    return(
+    return (
         <h1>Companies</h1>
     );
 }

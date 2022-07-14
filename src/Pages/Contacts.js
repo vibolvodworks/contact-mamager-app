@@ -1,5 +1,5 @@
 const Contacts = () => {
-    return(
+    return (
         <h1>Contacts</h1>
     );
 }

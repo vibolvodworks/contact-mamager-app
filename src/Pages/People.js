@@ -1,5 +1,5 @@
 const People = () => {
-    return(
+    return (
         <h1>People</h1>
     );
 }

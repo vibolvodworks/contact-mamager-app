@@ -1,5 +1,5 @@
 const Favourites = () => {
-    return(
+    return (
         <h1>Favourites</h1>
     );
 }

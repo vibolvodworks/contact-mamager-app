@@ -1,7 +1,7 @@
 import ContactList from "../components/ContactList/ContactList";
 
 const Home = () => {
-    return(
+    return (
         <ContactList />
     );
 }
