@@ -6,11 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Contacts from "./Pages/Contacts";
-import People from "./Pages/People";
-import Home from "./Pages/Home";
-import Favourites from "./Pages/Favourites";
-import Companies from "./Pages/Companies";
+import Contacts from "./pages/Contacts";
+import People from "./pages/People";
+import Home from "./pages/Home";
+import Favourites from "./pages/Favourites";
+import Companies from "./pages/Companies";
 import { Provider } from 'react-redux';
 import store from './redux/store';
 

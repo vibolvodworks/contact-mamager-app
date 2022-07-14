@@ -28,7 +28,7 @@ const ListProfile = () => {
 
     useEffect(() => {
         fetchPeople();
-    }, []);
+    });
 
     const RenderProfile = () => {
         let people = state.peopleReducer.people;
