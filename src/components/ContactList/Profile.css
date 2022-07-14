@@ -1,0 +1,80 @@
+/*--------------------------------------------------------------
+# Profie Page
+--------------------------------------------------------------*/
+.profile {
+    padding-left: 20px;
+  }
+  .profile .row {
+    border-bottom: 1px solid;
+    border-color: #D3D3D3;
+  }
+  .profile .row:last-child {
+    border-bottom: none;
+  }
+  .profile .row .col-xl-3  {
+    background-color: #fff;
+    border-right: 1px solid;
+    border-color: #D3D3D3;
+  }
+  .profile .row .col-xl-3:last-child  {
+    border-right: none;
+  }
+
+  .profile .profile-card img {
+    max-width: 120px;
+  }
+  .profile .profile-card h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #23A3D4;
+    margin: 10px 0 0 0;
+  }
+  .profile .profile-card h3 {
+    font-size: 12px;
+  }
+  .profile .profile-card .social-links a {
+    font-size: 20px;
+    display: inline-block;
+    color: rgba(1, 41, 112, 0.5);
+    line-height: 0;
+    margin-right: 10px;
+    transition: 0.3s;
+  }
+  .profile .profile-card .social-links a:hover {
+    color: #012970;
+  }
+  .profile .profile-overview .row {
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+  .profile .profile-overview .card-title {
+    color: #012970;
+  }
+  .profile .profile-overview .label {
+    font-weight: 600;
+    color: rgba(1, 41, 112, 0.6);
+  }
+  .profile .profile-edit label {
+    font-weight: 600;
+    color: rgba(1, 41, 112, 0.6);
+  }
+  .profile .profile-edit img {
+    max-width: 120px;
+  }
+  .profile button {
+    text-transform: uppercase;
+    border: 1px solid #33BBEE;
+    font-weight: bold;
+    color: #33BBEE;
+    font-size: 10px;
+    padding: 8px;
+    margin: 5px;
+    font-size: 12px;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .profile button.delete {
+    border: 1px solid red;
+    color: red;
+  }

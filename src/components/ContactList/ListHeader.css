@@ -1,0 +1,40 @@
+/*--------------------------------------------------------------
+# Page Title
+--------------------------------------------------------------*/
+.page-list-header {
+    border-bottom: 1px solid;
+    border-color: #D3D3D3;
+    margin: 25px 0;
+  }
+
+  .page-list-header .bi {
+    font-size: 35px;
+    color: #23A3D4;
+  }
+
+  .page-list-header .bi-list {
+    color: #D3D3D3;
+  }
+
+  .pagetitle {
+    color: #23A3D4;
+    font-size: 40px;
+  }
+
+  .pagetitle span {
+    margin-bottom: 0;
+    margin-right: 15px;
+    font-weight: bold;
+    color: #23A3D4;
+  }
+
+  .location-info {
+    margin-top: -40px;
+    margin-left: 40px;
+    text-align: right;
+  }
+
+  .location-info .bi {
+    font-size: 15px;
+    color: #D3D3D3;
+  }

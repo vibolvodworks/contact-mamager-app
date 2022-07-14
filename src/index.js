@@ -3,11 +3,34 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Contacts from "./Pages/Contacts";
+import People from "./Pages/People";
+import Home from "./Pages/Home";
+import Favourites from "./Pages/Favourites";
+import Companies from "./Pages/Companies";
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+            <Route path='home' element={<Home />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/people" element={<People />} />
+            <Route path="/favourites" element={<Favourites />} />
+            <Route path="/companies" element={<Companies />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

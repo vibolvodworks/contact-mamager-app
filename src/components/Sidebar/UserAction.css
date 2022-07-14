@@ -1,0 +1,13 @@
+.user-action {
+    color: #fff;
+    position: absolute;
+    bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .user-action span {
+    margin: 10px;
+  }
+  .user-action .bi {
+    color: #23A3D4;
+  }

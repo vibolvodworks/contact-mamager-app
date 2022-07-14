@@ -1,0 +1,1 @@
+export const FIRE_BASE_URL = 'https://contact-manager-bea8c-default-rtdb.firebaseio.com/';
