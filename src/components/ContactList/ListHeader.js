@@ -2,10 +2,10 @@ import "./ListHeader.css";
 import ListTypeFillter from "./ListTypeFillter";
 import LocationFilter from "./LocationFilter";
 
-const ListHeader = () => {
+const ListHeader = ({title}) => {
     return (
         <div className="row page-list-header">
-            <ListTypeFillter />
+            <ListTypeFillter title={title} />
             <LocationFilter />
         </div>
     );

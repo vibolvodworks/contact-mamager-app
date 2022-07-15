@@ -1,6 +1,11 @@
+import { useSelector } from "react-redux";
+import ContactList from "../components/ContactList/ContactList";
+
 const People = () => {
+    const state = useSelector(state => state);
+    const people = state.peopleReducer.people;
     return (
-        <h1>People</h1>
+        <ContactList title="People" data={people} />
     );
 }
 

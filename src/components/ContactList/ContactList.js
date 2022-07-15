@@ -2,11 +2,11 @@ import React from "react";
 import ListHeader from "./ListHeader";
 import ListProfile from "./ListProfile";
 
-const ContactList = () => {
+const ContactList = ({title, data}) => {
     return (
         <React.Fragment>
-            <ListHeader />
-            <ListProfile />
+            <ListHeader title={title} />
+            <ListProfile data={data} />
         </React.Fragment>
     );
 }

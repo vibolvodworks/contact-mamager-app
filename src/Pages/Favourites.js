@@ -1,6 +1,11 @@
+import ContactList from "../components/ContactList/ContactList";
+import {useSelector } from "react-redux";
+
 const Favourites = () => {
+    const state = useSelector(state => state);
+    const favourites = state.peopleReducer.favourites;
     return (
-        <h1>Favourites</h1>
+        <ContactList title="Favourites" data={favourites} />
     );
 }
 

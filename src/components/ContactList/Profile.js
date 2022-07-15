@@ -2,6 +2,9 @@ import SocialLink from "./SocialLink";
 import './Profile.css';
 
 const Profile = ({data}) => {
+    const onRemoveContact = () => {
+        console.log(data);
+    }
     return (
         <div className="col-xl-3">
             <div className="card">
@@ -11,8 +14,9 @@ const Profile = ({data}) => {
                     <h3>{data.company}, {data.position}</h3>
                     <SocialLink links = {data.social_networks} />
                     <h3>{data.city}</h3>
-                    {data.isContact && <button className="delete">Remove From Contacts</button>}
+                    {data.isContact && <button onClick={onRemoveContact}  className="delete">Remove From Contacts</button>}
                     {!data.isContact && <button className="add">Add to Contacts</button>}
+                    {data.isFavourite && <button className="delete">Remove From Favourites</button>}
                     {(!data.isFavourite && data.isContact) && <button className="add">Add to favourites</button>}
                 </div>
             </div>

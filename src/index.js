@@ -8,7 +8,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contacts from "./pages/Contacts";
 import People from "./pages/People";
-import Home from "./pages/Home";
 import Favourites from "./pages/Favourites";
 import Companies from "./pages/Companies";
 import { Provider } from 'react-redux';
@@ -21,8 +20,8 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route index element={<Home />} />
-            <Route path='home' element={<Home />} />
+            <Route index element={<People />} />
+            <Route path='/home' element={<People />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/people" element={<People />} />
             <Route path="/favourites" element={<Favourites />} />

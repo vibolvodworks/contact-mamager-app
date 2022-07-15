@@ -20,13 +20,15 @@ export const PeopleReducer = (state = initialState, { type, payload = [] }) => {
             }
         case ActionTypes.GET_CONTACTS:
             return {
+                ...state,
                 loading: false,
-                people: payload
+                contacts: payload
             }
         case ActionTypes.GET_FAVOURITES:
             return {
+                ...state,
                 loading: false,
-                people: payload
+                favourites: payload
             }
 
         default:

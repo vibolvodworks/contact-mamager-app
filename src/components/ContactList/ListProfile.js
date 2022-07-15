@@ -1,40 +1,13 @@
-import Profile from "./Profile";
-import { FIRE_BASE_URL } from "../../Config";
-import { ActionTypes } from "../../redux/constants/ActionTypes";
-import React, { useEffect } from "react";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import Profile from "./Profile"
 
 
-const ListProfile = () => {
-    const state = useSelector(state => state);
-    const dispatch = useDispatch();
 
-    const fetchPeople = async () => {
-        const response = await axios
-            .get(FIRE_BASE_URL + "people.json")
-            .catch((err) => {
-                dispatch({
-                    type: ActionTypes.PEOPLE_ERROR,
-                    payload: err,
-                })
-                console.log("Err", err);
-            });
-        dispatch({
-            type: ActionTypes.GET_PEOPLE,
-            payload: response.data
-        });
-    };
+const ListProfile = ({ data = [] }) => {
 
-    useEffect(() => {
-        fetchPeople();
-    });
-
-    const RenderProfile = () => {
-        let people = state.peopleReducer.people;
+    const RenderProfile = (data) => {
         let rows = [], columns = [];
         let rowIndex = 0;
-        people.forEach((profile, i) => {
+        data.forEach((profile, i) => {
             // prepare the array
             columns.push(
                 <Profile key={i + 1} data={profile} />
@@ -58,7 +31,7 @@ const ListProfile = () => {
         <div className="row">
             <div className="col-xl-12">
                 <section className="section profile">
-                    {RenderProfile()}
+                    {RenderProfile(data)}
                 </section>
             </div>
         </div>

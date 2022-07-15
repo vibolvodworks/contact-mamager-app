@@ -1,8 +1,8 @@
-const ListTypeFillter = () => {
+const ListTypeFillter = ({title}) => {
     return (
         <div className="col-xl-10">
             <div className="pagetitle">
-                <span>People</span>
+                <span>{title}</span>
                 <i className="bi bi-grid-fill"></i>
                 <i className="bi bi-list"></i>
             </div>
