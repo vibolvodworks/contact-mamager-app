@@ -2,7 +2,7 @@ import { ActionTypes } from "../constants/ActionTypes";
 
 const initialState = {
     people: [],
-    loading: true
+    loading: true,
 }
 
 export const PeopleReducer = (state = initialState, { type, payload = [] }) => {
@@ -13,24 +13,29 @@ export const PeopleReducer = (state = initialState, { type, payload = [] }) => {
                 people: payload,
                 loading: false
             };
+        case ActionTypes.FILTER_PEOPLE:
+            return {
+                ...state,
+                people: payload,
+                loading: false
+            };
+        case ActionTypes.UPDATE_PEOPLE:
+            let peopleUpdated = state.people.map((person) => {
+                if (person.id === payload.id) {
+                    return payload;
+                }
+                return person;
+            });
+            return {
+                ...state,
+                people: peopleUpdated,
+                loading: false
+            };
         case ActionTypes.PEOPLE_ERROR:
             return {
                 loading: false,
                 error: payload
             }
-        case ActionTypes.GET_CONTACTS:
-            return {
-                ...state,
-                loading: false,
-                contacts: payload
-            }
-        case ActionTypes.GET_FAVOURITES:
-            return {
-                ...state,
-                loading: false,
-                favourites: payload
-            }
-
         default:
             return state;
     };

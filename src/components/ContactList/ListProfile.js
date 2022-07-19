@@ -9,8 +9,10 @@ const ListProfile = ({ data = [] }) => {
         let rowIndex = 0;
         data.forEach((profile, i) => {
             // prepare the array
+            profile['key'] = i;
             columns.push(
-                <Profile key={i + 1} data={profile} />
+                // <Profile key={profile.key} data={profile} />
+                <Profile key={i} data={profile} />
             );
             // insert new row if 4 columns
             if ((i + 1) % 4 === 0) {

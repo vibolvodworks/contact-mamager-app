@@ -1,10 +1,34 @@
 import SocialLink from "./SocialLink";
 import './Profile.css';
+import { UpdatePeople } from "../../services";
+import { useDispatch } from "react-redux";
 
-const Profile = ({data}) => {
-    const onRemoveContact = () => {
-        console.log(data);
+const Profile = ({ data }) => {
+    const dispatch = useDispatch();
+    const onRemoveContact = async () => {
+        let updateData = data;
+        updateData['isContact'] = false;
+        UpdatePeople(data.key, updateData, dispatch);
     }
+
+    const onAddContact = async () => {
+        let updateData = data;
+        updateData['isContact'] = true;
+        UpdatePeople(data.key, updateData, dispatch);
+    }
+
+    const onRemoveFavourite = async () => {
+        let updateData = data;
+        updateData['isFavourite'] = false;
+        UpdatePeople(data.key, updateData, dispatch);
+    }
+
+    const onAddFavourite = async () => {
+        let updateData = data;
+        updateData['isFavourite'] = true;
+        UpdatePeople(data.key, updateData, dispatch);
+    }
+
     return (
         <div className="col-xl-3">
             <div className="card">
@@ -12,12 +36,12 @@ const Profile = ({data}) => {
                     <img src="assets/img/profile-img.jpg" alt="Profile" className="rounded-circle" />
                     <h2>{data.name}</h2>
                     <h3>{data.company}, {data.position}</h3>
-                    <SocialLink links = {data.social_networks} />
+                    <SocialLink links={data.social_networks} />
                     <h3>{data.city}</h3>
-                    {data.isContact && <button onClick={onRemoveContact}  className="delete">Remove From Contacts</button>}
-                    {!data.isContact && <button className="add">Add to Contacts</button>}
-                    {data.isFavourite && <button className="delete">Remove From Favourites</button>}
-                    {(!data.isFavourite && data.isContact) && <button className="add">Add to favourites</button>}
+                    {data.isContact && <button onClick={onRemoveContact} className="delete">Remove From Contacts</button>}
+                    {!data.isContact && <button onClick={onAddContact} className="add">Add to Contacts</button>}
+                    {data.isFavourite && <button onClick={onRemoveFavourite} className="delete">Remove From Favourites</button>}
+                    {(!data.isFavourite && data.isContact) && <button onClick={onAddFavourite} className="add">Add to favourites</button>}
                 </div>
             </div>
         </div>

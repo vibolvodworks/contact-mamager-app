@@ -1,30 +1,30 @@
 import { ActionTypes } from "../constants/ActionTypes"
 
 
-export const AddToContact = (people) => {
+export const FilterPeople = (payload) => {
     return {
-        type: ActionTypes.ADD_CONTACT,
-        payload: people
+        type: ActionTypes.FILTER_PEOPLE,
+        payload : payload
     };
 };
 
-export const RemoveContact = (people) => {
+export const PatchPeople = (payload) => {
     return {
-        type: ActionTypes.REMOVE_CONTACT,
-        payload: people
+        type: ActionTypes.UPDATE_PEOPLE,
+        payload : payload
     };
 };
 
-export const AddToFavourite = (people) => {
+export const GetPeople = (payload) => {
     return {
-        type: ActionTypes.ADD_FAVOURITE,
-        payload: people
+        type: ActionTypes.GET_PEOPLE,
+        payload: payload
     };
 };
 
-export const RemoveFavourite = (people) => {
+export const ErrorPeople = (error) => {
     return {
-        type: ActionTypes.REMOVE_FAVOURITE,
-        payload: people
+        type: ActionTypes.GET_PEOPLE,
+        payload: error
     };
 };
