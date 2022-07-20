@@ -1,17 +1,36 @@
 import { ActionTypes } from "../constants/ActionTypes"
 
 
-export const FilterPeople = (payload) => {
+export const FilterPeople = (people, searchTerm) => {
     return {
         type: ActionTypes.FILTER_PEOPLE,
-        payload : payload
+        payload: {
+            searchTerm: searchTerm,
+            people: searchTerm === '' ? people : people.filter((person) => {
+                return person.name.toLowerCase().includes(searchTerm)
+                    || person.company.toLowerCase().includes(searchTerm)
+                    || person.position.toLowerCase().includes(searchTerm)
+            })
+        }
+    };
+};
+
+export const FilterPeopleByLocation = (people, location) => {
+    return {
+        type: ActionTypes.FILTER_PEOPLE_BY_LOCATION,
+        payload: {
+            location: location,
+            people: location === '' ? people : people.filter((person) => {
+                return person.city === location
+            })
+        }
     };
 };
 
 export const PatchPeople = (payload) => {
     return {
         type: ActionTypes.UPDATE_PEOPLE,
-        payload : payload
+        payload: payload
     };
 };
 

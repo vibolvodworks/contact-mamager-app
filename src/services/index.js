@@ -13,9 +13,15 @@ export const FetchPeople = async (dispatch) => {
     dispatch(GetPeople(response.data));
 }
 
-export const UpdatePeople = async (id, updateData, dispatch) => {
+export const UpdatePeople = async (people, updateData, dispatch) => {
+    let peopleUpdated = people.map((person) => {
+        if (person.id === updateData.id) {
+            return updateData;
+        }
+        return person;
+    });
     const reponse = await axios
-    .patch(FIREBASE_URL + "people/"  + id + ".json", updateData)
+    .put(FIREBASE_URL + "people.json", peopleUpdated)
     .catch((err) => {
         dispatch(ErrorPeople(err));
         console.log("Err", err);

@@ -1,11 +1,9 @@
 import ContactList from "../components/ContactList/ContactList";
-import {useSelector } from "react-redux";
+import { FAVOURITES } from "../constants";
 
 const Favourites = () => {
-    const state = useSelector(state => state);
-    const favourites = state.peopleReducer.people.filter((person) => person.isFavourite);
     return (
-        <ContactList title="Favourites" data={favourites} />
+        <ContactList title={FAVOURITES} />
     );
 }
 

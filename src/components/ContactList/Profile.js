@@ -1,32 +1,34 @@
 import SocialLink from "./SocialLink";
 import './Profile.css';
 import { UpdatePeople } from "../../services";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Profile = ({ data }) => {
     const dispatch = useDispatch();
+    const state = useSelector(state => state);
+    const people = state.peopleReducer.people;
     const onRemoveContact = async () => {
         let updateData = data;
         updateData['isContact'] = false;
-        UpdatePeople(data.key, updateData, dispatch);
+        UpdatePeople(people, updateData, dispatch);
     }
 
     const onAddContact = async () => {
         let updateData = data;
         updateData['isContact'] = true;
-        UpdatePeople(data.key, updateData, dispatch);
+        UpdatePeople(people, updateData, dispatch);
     }
 
     const onRemoveFavourite = async () => {
         let updateData = data;
         updateData['isFavourite'] = false;
-        UpdatePeople(data.key, updateData, dispatch);
+        UpdatePeople(people, updateData, dispatch);
     }
 
     const onAddFavourite = async () => {
         let updateData = data;
         updateData['isFavourite'] = true;
-        UpdatePeople(data.key, updateData, dispatch);
+        UpdatePeople(people, updateData, dispatch);
     }
 
     return (
