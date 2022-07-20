@@ -16,6 +16,21 @@
     border-right: 1px solid;
     border-color: #D3D3D3;
   }
+
+  .profile .list-group:last-child {
+    border-bottom: 1px solid;
+    border-color: #D3D3D3;
+  }
+
+  .profile .list-group .list-group-item {
+    width: 100%;
+  }
+
+  .profile .list-group .col-xl-3.list-group-item:last-child {
+    border-right: 1px solid;
+    border-color: #D3D3D3;
+  }
+
   .profile .row .col-xl-3:last-child  {
     border-right: none;
   }

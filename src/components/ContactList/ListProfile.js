@@ -1,10 +1,9 @@
 import Profile from "./Profile"
+import { useState } from "react";
 
 
-
-const ListProfile = ({ data = [] }) => {
-
-    const RenderProfile = (data) => {
+const ListProfile = ({ listType, data = [] }) => {
+    const RenderProfile = (listType, data) => {
         let rows = [], columns = [];
         let rowIndex = 0;
         data.forEach((profile, i) => {
@@ -12,7 +11,7 @@ const ListProfile = ({ data = [] }) => {
             profile['key'] = i;
             columns.push(
                 // <Profile key={profile.key} data={profile} />
-                <Profile key={i} data={profile} />
+                <Profile listTypeClass={listType + '-group-item'} key={i} data={profile} />
             );
             // insert new row if 4 columns
             if ((i + 1) % 4 === 0) {
@@ -22,7 +21,7 @@ const ListProfile = ({ data = [] }) => {
             rows[rowIndex] = columns;
         });
         return rows.map((row, rowIndex) => {
-            return <div key={rowIndex} className="row">
+            return <div key={rowIndex} className={"row " + listType + '-group'}>
                 {row.map((column) => {
                     return column;
                 })}
@@ -33,7 +32,7 @@ const ListProfile = ({ data = [] }) => {
         <div className="row">
             <div className="col-xl-12">
                 <section className="section profile">
-                    {RenderProfile(data)}
+                    {RenderProfile(listType, data)}
                 </section>
             </div>
         </div>

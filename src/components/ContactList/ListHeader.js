@@ -2,10 +2,13 @@ import "./ListHeader.css";
 import ListTypeFillter from "./ListTypeFillter";
 import LocationFilter from "./LocationFilter";
 
-const ListHeader = ({title}) => {
+const ListHeader = ({title, onChangeView}) => {
+    const onClickChangeViewHandler = (type) => {
+        onChangeView(type);
+    }
     return (
         <div className="row page-list-header">
-            <ListTypeFillter title={title} />
+            <ListTypeFillter onClick={onClickChangeViewHandler} title={title} />
             <LocationFilter />
         </div>
     );

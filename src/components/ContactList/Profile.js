@@ -3,7 +3,7 @@ import './Profile.css';
 import { UpdatePeople } from "../../services";
 import { useDispatch, useSelector } from "react-redux";
 
-const Profile = ({ data }) => {
+const Profile = ({ listTypeClass, data }) => {
     const dispatch = useDispatch();
     const state = useSelector(state => state);
     const people = state.peopleReducer.people;
@@ -32,7 +32,7 @@ const Profile = ({ data }) => {
     }
 
     return (
-        <div className="col-xl-3">
+        <div className={"col-xl-3 " + listTypeClass} >
             <div className="card">
                 <div className="card-body profile-card pt-4 d-flex flex-column align-items-center">
                     <img src="assets/img/profile-img.jpg" alt="Profile" className="rounded-circle" />

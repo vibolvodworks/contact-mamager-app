@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ListHeader from "./ListHeader";
 import ListProfile from "./ListProfile";
 import { connect } from "react-redux";
@@ -6,6 +6,10 @@ import { GetPeople } from "../../redux/actions/PeopleAction";
 import { CONTACTS, FAVOURITES } from "../../constants";
 
 const ContactList = ({title, people}) => {
+    const [listType, setListType] = useState('gride');
+    const onChangeViewHandler = (type) => {
+        setListType(type);
+    }
     let contacts = people;
     switch(title) {
         case CONTACTS:
@@ -20,8 +24,8 @@ const ContactList = ({title, people}) => {
     }
     return (
         <React.Fragment>
-            <ListHeader title={title} />
-            <ListProfile data={contacts} />
+            <ListHeader onChangeView={onChangeViewHandler} title={title} />
+            <ListProfile listType={listType} data={contacts} />
         </React.Fragment>
     );
 }
