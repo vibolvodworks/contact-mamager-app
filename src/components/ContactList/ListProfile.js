@@ -1,6 +1,4 @@
 import Profile from "./Profile"
-import { useState } from "react";
-
 
 const ListProfile = ({ listType, data = [] }) => {
     const RenderProfile = (listType, data) => {
@@ -10,7 +8,6 @@ const ListProfile = ({ listType, data = [] }) => {
             // prepare the array
             profile['key'] = i;
             columns.push(
-                // <Profile key={profile.key} data={profile} />
                 <Profile listTypeClass={listType + '-group-item'} key={i} data={profile} />
             );
             // insert new row if 4 columns
