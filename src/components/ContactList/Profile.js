@@ -10,25 +10,25 @@ const Profile = ({ listTypeClass, data }) => {
     const onRemoveContact = async () => {
         let updateData = data;
         updateData['isContact'] = false;
-        UpdatePeople(people, updateData, dispatch);
+        UpdatePeople(people, data.key, updateData, dispatch);
     }
 
     const onAddContact = async () => {
         let updateData = data;
         updateData['isContact'] = true;
-        UpdatePeople(people, updateData, dispatch);
+        UpdatePeople(people, data.key, updateData, dispatch);
     }
 
     const onRemoveFavourite = async () => {
         let updateData = data;
         updateData['isFavourite'] = false;
-        UpdatePeople(people, updateData, dispatch);
+        UpdatePeople(people, data.key, updateData, dispatch);
     }
 
     const onAddFavourite = async () => {
         let updateData = data;
         updateData['isFavourite'] = true;
-        UpdatePeople(people, updateData, dispatch);
+        UpdatePeople(people, data.key, updateData, dispatch);
     }
 
     return (

@@ -1,4 +1,4 @@
-import {FIREBASE_URL } from '../Config';
+import { FIREBASE_URL } from '../Config';
 import axios from "axios";
 import { ErrorPeople, PatchPeople, GetPeople } from '../redux/actions/PeopleAction';
 
@@ -10,22 +10,28 @@ export const FetchPeople = async (dispatch) => {
             dispatch(ErrorPeople(err));
             console.log("Err", err);
         });
-    dispatch(GetPeople(response.data));
+    let people = [];
+    Object.entries(response.data).forEach(([index, value]) => {
+        people.push({ ...value, key: index });
+    });
+    dispatch(GetPeople(people));
 }
 
-export const UpdatePeople = async (people, updateData, dispatch) => {
+export const UpdatePeople = async (people, key, updateData, dispatch) => {
+    delete updateData.key;
+    const reponse = await axios
+        .put(FIREBASE_URL + "people/" + key + ".json", updateData)
+        .catch((err) => {
+            dispatch(ErrorPeople(err));
+            console.log("Err", err);
+        });
+
     let peopleUpdated = people.map((person) => {
-        if (person.id === updateData.id) {
-            return updateData;
+        if (person.id === reponse.data.id) {
+            return reponse.data;
         }
         return person;
     });
-    const reponse = await axios
-    .put(FIREBASE_URL + "people.json", peopleUpdated)
-    .catch((err) => {
-        dispatch(ErrorPeople(err));
-        console.log("Err", err);
-    });
 
-    dispatch(PatchPeople(reponse.data));
+    dispatch(PatchPeople(peopleUpdated));
 }

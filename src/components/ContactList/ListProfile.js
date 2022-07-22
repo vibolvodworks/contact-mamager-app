@@ -6,9 +6,8 @@ const ListProfile = ({ listType, data = [] }) => {
         let rowIndex = 0;
         data.forEach((profile, i) => {
             // prepare the array
-            profile['key'] = i;
             columns.push(
-                <Profile listTypeClass={listType + '-group-item'} key={i} data={profile} />
+                <Profile listTypeClass={listType + '-group-item'} key={profile.key} data={profile} />
             );
             // insert new row if 4 columns
             if ((i + 1) % 4 === 0) {
