@@ -35,3 +35,14 @@ export const UpdatePeople = async (people, key, updateData, dispatch) => {
 
     dispatch(PatchPeople(peopleUpdated));
 }
+
+export const CreatePeople = async (userInput, dispatch) => {
+    await axios
+        .post(FIREBASE_URL + "people.json", userInput)
+        .catch((err) => {
+            dispatch(ErrorPeople(err));
+            console.log("Err", err);
+        });
+
+    FetchPeople(dispatch);
+}

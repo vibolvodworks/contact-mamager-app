@@ -38,6 +38,13 @@ export const PeopleReducer = (state = initialState, { type, payload = [] }) => {
                 filterPeople: payload,
                 loading: false
             };
+        case ActionTypes.CREATE_PEOPLE:
+            return {
+                ...state,
+                people: payload,
+                filterPeople: payload,
+                loading: false
+            };
         case ActionTypes.PEOPLE_ERROR:
             return {
                 loading: false,

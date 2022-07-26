@@ -12,6 +12,7 @@ import Favourites from "./pages/Favourites";
 import Companies from "./pages/Companies";
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import PeopleForm from './pages/PeopleForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,7 +24,8 @@ root.render(
             <Route index element={<People />} />
             <Route path='/home' element={<People />} />
             <Route path="/contacts" element={<Contacts />} />
-            <Route path="/people" element={<People />} />
+            <Route path="/people" exact element={<People />} />
+            <Route path="/people/create" element={<PeopleForm />} />
             <Route path="/favourites" element={<Favourites />} />
             <Route path="/companies" element={<Companies />} />
           </Route>

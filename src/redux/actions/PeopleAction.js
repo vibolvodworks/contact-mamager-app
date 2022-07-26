@@ -34,6 +34,13 @@ export const PatchPeople = (payload) => {
     };
 };
 
+export const CreatePeople = (payload) => {
+    return {
+        type: ActionTypes.CREATE_PEOPLE,
+        payload: payload
+    };
+};
+
 export const GetPeople = (payload) => {
     return {
         type: ActionTypes.GET_PEOPLE,
