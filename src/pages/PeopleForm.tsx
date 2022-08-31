@@ -1,6 +1,7 @@
 import CreatePeopleForm from "../components/CreatePeopleForm"
+import React from "react";
 
-const PeopleForm = () => {
+const PeopleForm: React.FC = () => {
     return (<CreatePeopleForm />);
 }
 

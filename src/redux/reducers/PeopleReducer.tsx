@@ -8,47 +8,60 @@ const initialState = {
     loading: true,
 }
 
-export const PeopleReducer = (state = initialState, { type, payload = [] }) => {
-    switch (type) {
+type Payload = {
+    people: [],
+    filterPeople: [],
+    searchTerm: '',
+    location: '',
+    loading: true,
+}
+
+type UserAction = {
+    type: String;
+    payload: Payload
+}
+
+export const PeopleReducer = (state = initialState, userAction: UserAction) => {
+    switch (userAction.type) {
         case ActionTypes.GET_PEOPLE:
             return {
                 ...state,
-                people: payload,
-                filterPeople: payload,
+                people: userAction.payload,
+                filterPeople: userAction.payload,
                 loading: false
             };
         case ActionTypes.FILTER_PEOPLE:
             return {
                 ...state,
-                filterPeople: payload.people,
-                searchTerm: payload.searchTerm,
+                filterPeople: userAction.payload.people,
+                searchTerm: userAction.payload.searchTerm,
                 loading: false
             };
         case ActionTypes.FILTER_PEOPLE_BY_LOCATION:
             return {
                 ...state,
-                filterPeople: payload.people,
-                location: payload.location,
+                filterPeople: userAction.payload.people,
+                location: userAction.payload.location,
                 loading: false
             };
         case ActionTypes.UPDATE_PEOPLE:
             return {
                 ...state,
-                people: payload,
-                filterPeople: payload,
+                people: userAction.payload,
+                filterPeople: userAction.payload,
                 loading: false
             };
         case ActionTypes.CREATE_PEOPLE:
             return {
                 ...state,
-                people: payload,
-                filterPeople: payload,
+                people: userAction.payload,
+                filterPeople: userAction.payload,
                 loading: false
             };
         case ActionTypes.PEOPLE_ERROR:
             return {
                 loading: false,
-                error: payload
+                error: userAction.payload
             }
         default:
             return state;

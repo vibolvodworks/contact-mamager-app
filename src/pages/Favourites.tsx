@@ -1,7 +1,8 @@
 import ContactList from "../components/ContactList/ContactList";
 import { FAVOURITES } from "../constants";
+import React from "react";
 
-const Favourites = () => {
+const Favourites: React.FC = () => {
     return (
         <ContactList title={FAVOURITES} />
     );

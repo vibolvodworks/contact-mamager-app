@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
-import {React, useEffect } from "react";
+import React, {useEffect} from "react";
 import { FetchPeople } from "./services";
 import { useDispatch } from "react-redux";
 
-function App() {
+const App: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     FetchPeople(dispatch);

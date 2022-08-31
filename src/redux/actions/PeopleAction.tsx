@@ -1,7 +1,8 @@
 import { ActionTypes } from "../constants/ActionTypes"
+import {IPerson} from "../../interface";
 
 
-export const FilterPeople = (people, searchTerm) => {
+export const FilterPeople = (people: IPerson[], searchTerm: string) => {
     return {
         type: ActionTypes.FILTER_PEOPLE,
         payload: {
@@ -15,7 +16,7 @@ export const FilterPeople = (people, searchTerm) => {
     };
 };
 
-export const FilterPeopleByLocation = (people, location) => {
+export const FilterPeopleByLocation = (people: IPerson[], location: string) => {
     return {
         type: ActionTypes.FILTER_PEOPLE_BY_LOCATION,
         payload: {
@@ -27,28 +28,28 @@ export const FilterPeopleByLocation = (people, location) => {
     };
 };
 
-export const PatchPeople = (payload) => {
+export const PatchPeople = (payload: IPerson | Object) => {
     return {
         type: ActionTypes.UPDATE_PEOPLE,
         payload: payload
     };
 };
 
-export const CreatePeople = (payload) => {
+export const CreatePeople = (payload: IPerson) => {
     return {
         type: ActionTypes.CREATE_PEOPLE,
         payload: payload
     };
 };
 
-export const GetPeople = (payload) => {
+export const GetPeople = (payload: IPerson | Object) => {
     return {
         type: ActionTypes.GET_PEOPLE,
         payload: payload
     };
 };
 
-export const ErrorPeople = (error) => {
+export const ErrorPeople = (error: Object) => {
     return {
         type: ActionTypes.GET_PEOPLE,
         payload: error
